@@ -48,7 +48,7 @@ public class MemberController {
     // retrive by id
     @GetMapping("/{id}")
     public Member findById(@PathVariable(value = "id") Long id) {
-        return new Member();
+		return repository.findById(id).orElseThrow(RuntimeException::new);
     }
     
     // Update
