@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: demoservice
+server:
+  port: 8080
+
+---
+spring:
+  profiles: dev #this is dev profile
+  application:
+    name: demoservice
+server:
+  port: 9090
+
+---
+spring:
+  profiles: prod   #this is production
+  application:
+    name: demoservice
+server:
+  port: 4431

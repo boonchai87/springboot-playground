@@ -1,0 +1,28 @@
+<div th:replace="fragments/header.html"/>
+<div th:switch="${users}">
+    <h2 th:case="null">No users yet!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.userName}"></td>
+                <td th:text="${user.email}"></td>
+                <td><a th:href="@{/user/show/{id}(id=${user.id})}">Show</a></td>
+                <td><a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
+                <td><a th:href="@{/user/delete/{id}(id=${user.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a th:href="@{/user/create}">Add a new user</a></p>
+</div>
+<div th:replace="fragments/footer.html"/>

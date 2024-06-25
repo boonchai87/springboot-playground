@@ -1,0 +1,35 @@
+
+<label for="name">UserName</label>
+<input type="text" th:field="${user.userName}" id="name" placeholder="Name">
+<span th:if="${#fields.hasErrors('userName')}" th:errors="${user.userName}"></span>
+
+<br/>
+<label for="email">Email</label>
+<input type="text" th:field="*{email}" id="email" placeholder="Email">
+<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+<br/>
+<label for="password">Password</label>
+<input type="text" th:field="*{password}" id="password" placeholder="password">
+<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+<br/>
+
+Role:
+<div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" id="option1" name="userRole" value="ROLE_ADMIN" th:field="*{userRole}">
+    <label class="custom-control-label" for="option1">Admin</label>
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" id="option2" name="userRole" value="ROLE_USER" th:field="*{userRole}">
+    <label class="custom-control-label" for="option2">User</label>
+</div>
+<br/>
+<select th:field="*{status}">
+    <option th:value="'ENABLE'" th:text="ENABLE"></option>
+    <option th:value="'DISABLE'" th:text="DISABLE"></option>
+</select>
+<br/>
+Created: <span th:text="*{created}"/><br/>
+Updated: <span th:text="*{updated}"/><br/>
+
+
+<input type="submit" value="Save User">

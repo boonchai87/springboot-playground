@@ -14,5 +14,4 @@ public class HomeController {
     public String getMethodName() {
         return "hello-world";
     }
-    
 }

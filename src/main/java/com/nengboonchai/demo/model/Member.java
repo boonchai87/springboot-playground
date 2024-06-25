@@ -1,6 +1,5 @@
 package com.nengboonchai.demo.model;
 
-import javax.annotation.processing.Generated;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -18,7 +17,8 @@ public class Member {
     
     private String email;
 
-    private String firstName;
+    private String name;
 
+    private Enum memberRole;
 
 }

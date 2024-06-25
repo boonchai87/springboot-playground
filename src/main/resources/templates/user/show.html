@@ -1,0 +1,7 @@
+<div th:replace="fragments/header.html"/>
+    <label for="name">userName</label>
+    <span th:text="${user.userName}"></span><br/>
+    <label for="email">Email</label>
+    <span th:text="${user.email}"></span>
+<p><a th:href="@{/user}">Back</a></p>
+<div th:replace="fragments/footer.html"/>

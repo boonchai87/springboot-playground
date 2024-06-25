@@ -1,0 +1,6 @@
+<div th:replace="fragments/header.html"/>
+<h1>Edit</h1>
+<form action="#" th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+    <div th:replace="user/form.html"/>
+</form>
+<div th:replace="fragments/footer.html"/>
