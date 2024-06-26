@@ -1,6 +1,6 @@
 <!-- navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="<?=WEB_URL?>cart.php">ตระกร้าสินค้า<?=getCartCount()?></a>
+<!--    <a class="navbar-brand" href="<?=WEB_URL?>cart.php">ตระกร้าสินค้า<?=getCartCount()?></a>-->
     <button
             class="navbar-toggler"
             type="button"
@@ -17,24 +17,24 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{'/'}">Home</a>
             </li>
-            <? if( isRole(ROLE_MEMBER) ){?>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{'/member'}">Member</a>
-            </li>
-            <? } ?>
-            <? if( isRole(ROLE_ADMIN) ){?>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{'/admin'}">Administrator</a>
-            </li>
-            <? } ?>
-            <? if( !isLogin() ){ ?>
+<!--            <? if( isRole(ROLE_MEMBER) ){?>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{'/member'}">Member</a>-->
+<!--            </li>-->
+<!--            <? } ?>-->
+<!--            <? if( isRole(ROLE_ADMIN) ){?>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{'/admin'}">Administrator</a>-->
+<!--            </li>-->
+<!--            <? } ?>-->
+<!--            <? if( !isLogin() ){ ?>-->
             <li class="nav-item">
                 <a class="nav-link" th:href="@{'/register'}">สมัครสมาชิก</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{'/login'}">เข้าสู่ระบบ</a>
             </li>
-            <? } ?>
+<!--            <? } ?>-->
         </ul>
     </div>
 </nav>

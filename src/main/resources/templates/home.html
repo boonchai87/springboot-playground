@@ -1,15 +1,10 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <title>Spring Security Example</title>
-</head>
-<body>
+<div th:replace="fragments/header.html"/>
 Hi ยินต้อนรับ springboot-playground
 by nengboonchai
 <ul>
-    <li><a>Register</a> </li>
+    <li><a th:href="@{/register}">Register</a> </li>
     <li><a th:href="@{/user}">Sprintboot Crud Member Table ( SpringMvC)</a></li>
-    <li>Crud Member API endpoint </li>
-    <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+    <li><a th:href="@{swagger-ui/index.html}" target="_blank">Crud Member API endpoint</a></li>
+    <li><a th:href="@{/hello}">This is Secure Page need login first</a></li>
 </ul>
-</body>
-</html>
+<div th:replace="fragments/footer.html"/>
