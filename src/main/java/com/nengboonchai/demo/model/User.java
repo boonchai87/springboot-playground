@@ -24,29 +24,30 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
-    private String email;
+    @NotBlank(message = "Name is mandatory")
+    private String name;
 
-    @NotBlank
-    private String userName;
+    @NotBlank(message = "Email is mandatory")
+    private String email;
 
     //@NotBlank
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @NotBlank
+    @NotBlank(message = "userRole is mandatory")
     private String userRole;
 
-    @NotNull
+    //@NotNull(message = "status is mandatory")
+    //@Column(nullable = true)
     private Integer status;
 
     // https://stackoverflow.com/questions/42366763/hibernate-creationtimestamp-updatetimestamp-for-calendar
-    @Column(nullable = false, updatable = false)
+    //@Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     protected Date created;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     protected Date updated;

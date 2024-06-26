@@ -6,23 +6,57 @@
         <table class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>
+                    <a th:href="@{'?pageNo=' + ${currentPage} + '&sortField=id&sortDir=' + ${reverseSortDir}}">
+                        Id</a>
+                </th>
+                <th>
+                    <a th:href="@{'?pageNo=' + ${currentPage} + '&sortField=name&sortDir=' + ${reverseSortDir}}">
+                        Name</a>
+                </th>
+                <th>
+                    <a th:href="@{'?pageNo=' + ${currentPage} + '&sortField=email&sortDir=' + ${reverseSortDir}}">
+                        Email</a>
+                </th>
+                <th>Command</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="user : ${users}">
-                <td th:text="${user.userName}"></td>
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
                 <td th:text="${user.email}"></td>
-                <td><a th:href="@{/user/show/{id}(id=${user.id})}">Show</a></td>
-                <td><a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
-                <td><a th:href="@{/user/delete/{id}(id=${user.id})}">Delete</a></td>
+                <td>
+                    <a th:href="@{/user/view/{id}(id=${user.id})}">Show</a>
+                    <a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a>
+                    <a th:href="@{/user/delete/{id}(id=${user.id})}" onclick="return confirm('sure for deleted')">Delete</a>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <p><a th:href="@{/user/create}">Add a new user</a></p>
+    <div th:if = "${totalPages > 1}">
+        <div class = "row col-sm-10">
+            <div class = "col-sm-5">
+                Total Rows: [[${totalItems}]]
+            </div>
+            <div class = "col-sm-3">
+                    <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                        <a th:if="${currentPage != i}" th:href="@{'?pageNo=' + ${i}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                        <span th:unless="${currentPage != i}">[[${i}]]</span>
+                    </span>
+            </div>
+            <div class = "col-sm-1">
+                <a th:if="${currentPage < totalPages}" th:href="@{'?pageNo=' + ${currentPage + 1}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                <span th:unless="${currentPage < totalPages}">Next</span>
+            </div>
+
+            <div class="col-sm-1">
+                <a th:if="${currentPage < totalPages}" th:href="@{'?pageNo=' + ${totalPages}+ '&sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                <span th:unless="${currentPage < totalPages}">Last</span>
+            </div>
+        </div>
+    </div>
+    <p><a th:href="@{/user/create}">Add a new</a></p>
 </div>
 <div th:replace="fragments/footer.html"/>

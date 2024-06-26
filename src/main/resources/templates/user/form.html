@@ -1,7 +1,7 @@
 
-<label for="name">UserName</label>
-<input type="text" th:field="${user.userName}" id="name" placeholder="Name">
-<span th:if="${#fields.hasErrors('userName')}" th:errors="${user.userName}"></span>
+<label for="name">Name</label>
+<input type="text" th:field="${user.name}" id="name" placeholder="Name">
+<span th:if="${#fields.hasErrors('name')}" th:errors="${user.name}"></span>
 
 <br/>
 <label for="email">Email</label>
@@ -24,8 +24,8 @@ Role:
 </div>
 <br/>
 <select th:field="*{status}">
-    <option th:value="'ENABLE'" th:text="ENABLE"></option>
-    <option th:value="'DISABLE'" th:text="DISABLE"></option>
+    <option th:value="1" th:text="ENABLE"></option>
+    <option th:value="0" th:text="DISABLE"></option>
 </select>
 <br/>
 Created: <span th:text="*{created}"/><br/>

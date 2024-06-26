@@ -10,8 +10,8 @@ public class HomeController {
     public String index(){
         return "home";
     }
-    @GetMapping("/hello-world")
+    @GetMapping("/hello")
     public String getMethodName() {
-        return "hello-world";
+        return "hello";
     }
 }
