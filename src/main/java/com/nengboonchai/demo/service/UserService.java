@@ -1,5 +1,6 @@
 package com.nengboonchai.demo.service;
 
+import com.nengboonchai.demo.dto.UserDto;
 import com.nengboonchai.demo.model.User;
 import com.nengboonchai.demo.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -16,28 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Transactional
-public class UserService{
-    @Autowired
-    private UserRepository userRepository;
+public interface UserService{
 
-    //@Autowired
-    private BCryptPasswordEncoder bcryptEncoder=new BCryptPasswordEncoder();
-    //private PasswordEncoder bcryptEncoder=new PasswordEncoder();
+    public Page<User> findPaginate(int pageNum, int pageSize, String sortField, String sortDirection);
 
-    public Page<User> findPaginate(int pageNum, int pageSize, String sortField, String sortDirection){
-        System.out.println("pageNum="+pageNum+",pageSize ="+pageSize+",sortField="+sortField+",sortDirection="+sortDirection);
-        Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
-        if( sortField!=null && !sortField.trim().equals("") ) {
-            if( sortDirection!=null && (sortDirection.equals("desc") || sortDirection.equals("asc")) ) {
-                Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
-                        Sort.by(sortField).descending();
-                pageable = PageRequest.of(pageNum - 1, pageSize, sort);
-            }/*else{
-                pageable = PageRequest.of(pageNum - 1, pageSize);
-            }*/
-        }
-        System.out.println(pageable);
-        return this.userRepository.findAll(pageable);
-    }
+    void saveUser(UserDto userDto);
+
+    User findUserByEmail(String email);
+
+    List<UserDto> findAllUsers();
+
+    void saveUser(User user);
+
 }

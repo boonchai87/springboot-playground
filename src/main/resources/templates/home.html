@@ -2,9 +2,12 @@
 Hi ยินต้อนรับ springboot-playground
 by nengboonchai
 <ul>
-    <li><a th:href="@{/register}">Register</a> </li>
-    <li><a th:href="@{/user}">Sprintboot Crud Member Table ( SpringMvC)</a></li>
+    <li><a th:href="@{account/registerForm}">Register</a> </li>
+    <li><a th:href="@{/user}">Sprintboot Crud Member Table ( SpringMvC) Need Login first</a></li>
     <li><a th:href="@{swagger-ui/index.html}" target="_blank">Crud Member API endpoint</a></li>
     <li><a th:href="@{/hello}">This is Secure Page need login first</a></li>
+    <li><a th:href="@{/report/pdf}">User List in Pdf</a></li>
+    <li><a th:href="@{/report/excel}">User List in Excel</a></li>
+    <li><a th:href="@{/report/csv}">User List in CSV</a></li>
 </ul>
 <div th:replace="fragments/footer.html"/>
