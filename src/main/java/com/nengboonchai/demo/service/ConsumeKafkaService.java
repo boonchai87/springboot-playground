@@ -1,13 +1,11 @@
 package com.nengboonchai.demo.service;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.annotation.PartitionOffset;
-import org.springframework.kafka.annotation.TopicPartition;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
 
 // https://www.stackchief.com/blog/%40KafkaListener%20%7C%20Spring%20Boot%20Example#google_vignette
 @Component
