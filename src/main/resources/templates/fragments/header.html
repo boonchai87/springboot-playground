@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>My Springboot Playground</title>
+    <title th:text="${appName}"></title>
     <!-- Bootstrap CSS -->
     <link
             rel="stylesheet"
@@ -33,7 +33,7 @@
 <!-- start containter -->
 <div class="container">
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <h1>My Springboot Playground</h1>
+        <h1 th:text="${appName}"></h1>
         <p>test is playgroup of springboot</p>
     </div>
     <div th:replace="fragments/navigation.html"/>
