@@ -33,8 +33,8 @@
 <!-- start containter -->
 <div class="container">
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <h1 th:text="${appName}"></h1>
-        <p>test is playgroup of springboot</p>
+        <h1 th:text="${@environment.getProperty('spring.application.name')}"></h1>
+        <p>contact-me : neng87@gmail.com</p>
     </div>
     <div th:replace="fragments/navigation.html"/>
     <div class="row">

@@ -52,8 +52,8 @@ public class WebSecurityConfig {
                                 "/api/**",
                                 "/sendMessage",
                                         "/account/**",
-                                        "/report/**"
-
+                                        "/report/**",
+                                "/sendemail"
                         ).permitAll()
                                 .requestMatchers("/user").hasRole("ADMIN")
                                 .anyRequest()
