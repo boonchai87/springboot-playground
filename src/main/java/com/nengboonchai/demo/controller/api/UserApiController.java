@@ -1,6 +1,5 @@
 package com.nengboonchai.demo.controller.api;
 
-import com.nengboonchai.demo.exception.ResourceNotFoundException;
 import com.nengboonchai.demo.model.User;
 import com.nengboonchai.demo.repository.UserRepository;
 import com.nengboonchai.demo.service.UserService;
@@ -66,7 +65,6 @@ public class UserApiController {
     public ResponseEntity<User> show(@PathVariable("id") Long id) {
         Optional<User> optional = userRepository.findById(id);
         if( optional.isPresent() ){
-
             return new ResponseEntity<User>(optional.get(),HttpStatus.OK);
         }else {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);

@@ -1,5 +1,6 @@
 package com.nengboonchai.demo;
 
+import com.nengboonchai.demo.exception.RestTemplateResponseErrorHandler;
 import com.nengboonchai.demo.service.ConsumeKafkaService;
 import com.nengboonchai.demo.kafka.ProducerKafaService;
 import org.slf4j.Logger;
@@ -9,8 +10,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.retry.annotation.EnableRetry;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@EnableRetry
 public class DemoApplication implements ApplicationRunner {
 	private static final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
 	//@Autowired
@@ -18,10 +24,18 @@ public class DemoApplication implements ApplicationRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	/*@Bean
+	@Bean
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
-	}*/
+//		RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+//		RestTemplate restTemplate = restTemplateBuilder
+//				.errorHandler(new RestTemplateResponseErrorHandler())
+//				.build();
+//		return restTemplate;
+	}
+
+
+
 	@Autowired
 	ProducerKafaService produce;
 

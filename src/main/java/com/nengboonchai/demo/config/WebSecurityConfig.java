@@ -53,11 +53,21 @@ public class WebSecurityConfig {
                                 "/sendMessage",
                                         "/account/**",
                                         "/report/**",
-                                "/sendemail"
+                                "/sendemail",
+                                "/websocket",
+                                "/testZipkin",
+                                "/testRetry",
+                                "/images/**",
+                                 "/js/**",
+                                "/css/**",
+                                "/gs-guide-websocket/**",
+                                "/actuator/**",
+                                "/template/users/**"
                         ).permitAll()
                                 .requestMatchers("/user").hasRole("ADMIN")
                                 .anyRequest()
                         .authenticated()
+
                 ).
                 formLogin((form) -> form
                         //.loginPage("/login")
